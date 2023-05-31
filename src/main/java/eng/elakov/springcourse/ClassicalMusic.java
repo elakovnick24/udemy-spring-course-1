@@ -1,22 +1,39 @@
 package eng.elakov.springcourse;
 
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class ClassicalMusic implements Music {
-    private ClassicalMusic() {};
+    List<String> classicalSongs = new ArrayList<>();
 
-    public static ClassicalMusic getClassicalMusic() {
-        return new ClassicalMusic();
-    }
-    public void doMyInit() {
-        System.out.println("Doing my initialization");
+    {
+        classicalSongs.add("Ludwig van Beethoven");
+        classicalSongs.add("Wolfgang Amadeus Mozart");
+        classicalSongs.add("Pyotr Ilyich Tchaikovsky");
     }
 
-    public void doMyDestroy() {
-        System.out.println("Doing my destroy");
-    }
     @Override
-    public String getSong() {
-        return "Hungarian Rhapsody";
+    public List<String> getSongs() {
+        return classicalSongs;
     }
+
+//    private ClassicalMusic() {};
+//
+//    public static ClassicalMusic getClassicalMusic() {
+//        return new ClassicalMusic();
+//    }
+//    public void doMyInit() {
+//        System.out.println("Doing my initialization");
+//    }
+//
+//    public void doMyDestroy() {
+//        System.out.println("Doing my destroy");
+//    }
+//    @Override
+//    public String getSong() {
+//        return "Hungarian Rhapsody";
+//    }
 }
