@@ -14,9 +14,10 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="eng.elakov.springcourse.MusicPlayer">
+          class="eng.elakov.springcourse.MusicPlayer"
+          scope="prototype">
+<!--          scope="singleton">-->
         <property name="music" ref="musicBean"/>
-
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
