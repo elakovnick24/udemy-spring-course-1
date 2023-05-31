@@ -10,16 +10,19 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean"
-          class="eng.elakov.springcourse.ClassicalMusic">
+          class="eng.elakov.springcourse.ClassicalMusic"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy"
+          factory-method="getClassicalMusic">
     </bean>
 
-    <bean id="musicPlayer"
-          class="eng.elakov.springcourse.MusicPlayer"
-          scope="prototype">
-<!--          scope="singleton">-->
-        <property name="music" ref="musicBean"/>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+<!--    <bean id="musicPlayer"-->
+<!--          class="eng.elakov.springcourse.MusicPlayer"-->
+<!--          scope="prototype">-->
+<!--&lt;!&ndash;          scope="singleton">&ndash;&gt;-->
+<!--        <property name="music" ref="musicBean"/>-->
+<!--        <property name="name" value="${musicPlayer.name}"/>-->
+<!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+<!--    </bean>-->
 
 </beans>
