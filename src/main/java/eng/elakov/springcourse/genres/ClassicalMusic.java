@@ -1,4 +1,6 @@
-package eng.elakov.springcourse;
+package eng.elakov.springcourse.genres;
+
+import eng.elakov.springcourse.Music;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;

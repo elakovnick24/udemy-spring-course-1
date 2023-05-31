@@ -1,5 +1,6 @@
-package eng.elakov.springcourse;
+package eng.elakov.springcourse.genres;
 
+import eng.elakov.springcourse.Music;
 import org.springframework.stereotype.Component;
 
 @Component

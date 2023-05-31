@@ -1,12 +1,16 @@
 package eng.elakov.springcourse;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 @Component
 public class MusicPlayer {
+    private List<Music> musicList = new ArrayList<>();
+    private Random random = new Random();
 
     @Value("${musicPlayer.name}")
     private String name;
@@ -22,17 +26,13 @@ public class MusicPlayer {
         return volume;
     }
 
-    private Music music1;
-    private Music music2;
-
-    @Autowired
-    public MusicPlayer(@Qualifier("rockMusic") Music music1,
-                       @Qualifier("classicalMusic") Music music2) {
-        this.music1 = music1;
-        this.music2 = music2;
+    public MusicPlayer(List<Music> musicList) {
+        this.musicList = musicList;
     }
 
     public String playMusic() {
-        return "Playing: " + music1.getSong() + ", " + music2.getSong();
+        return "Playing: " + musicList.get(random.nextInt(musicList.size())).getSong()
+                + " with volume " + this.volume;
+
     }
 }
